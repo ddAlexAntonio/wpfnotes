@@ -24,5 +24,10 @@ namespace WpfNotes
         {
             InitializeComponent();
         }
+
+        private void crearNota_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Hello");
+        }
     }
 }

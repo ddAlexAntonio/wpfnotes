@@ -5,13 +5,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfNotes"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Proyecto WPFNotes" Height="450" Width="800" FontFamily="Segoe UI Light" FontSize="14">
     <Grid>
-        <!--2 columnas con tamaño automático y la última que ocupe el resto-->
         <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="15"/>
             <ColumnDefinition Width="auto"/>
             <ColumnDefinition Width="auto"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Column="1" Grid.Row="0" Text="Aquí iría el menú a lo largo de 3 columnas" Grid.ColumnSpan="3"/>
+        <TextBlock Grid.Column="1" Grid.Row="2" Text="Aquí iría el arbol de libretas"/>
+        <Button x:Name="crearNota" Content="Nueva nota" Grid.Column="1" Grid.Row="1" Click="crearNota_Click"/>
     </Grid>
 </Window>
