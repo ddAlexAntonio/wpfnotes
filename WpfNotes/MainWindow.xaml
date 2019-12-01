@@ -4,6 +4,9 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfNotes"
+        xmlns:MyNamespace="clr-namespace:WpfArbolDeLibretasControlUsuario;assembly=WpfArbolDeLibretasControlUsuario"
+        xmlns:Controls="clr-namespace:WpfRichText;assembly=WpfRichText"
+        xmlns:Controls1="clr-namespace:WpfRichText;assembly=WpfRichTextControlUsuario"
         mc:Ignorable="d"
         Title="Proyecto WPFNotes" Height="450" Width="800" FontFamily="Segoe UI Light" FontSize="14">
     <Grid>
@@ -20,6 +23,19 @@
         </Grid.RowDefinitions>
         <TextBlock Grid.Column="1" Grid.Row="0" Text="Aquí iría el menú a lo largo de 3 columnas" Grid.ColumnSpan="3"/>
         <TextBlock Grid.Column="1" Grid.Row="2" Text="Aquí iría el arbol de libretas"/>
+        <TextBlock Grid.Column="2" Grid.Row="2" Text="Aquí iría el título y alguna frase"/>
+        <TextBlock Grid.Column="3" Grid.Row="2" Text="Aquí iría nada o la nota en particular"/>
         <Button x:Name="crearNota" Content="Nueva nota" Grid.Column="1" Grid.Row="1" Click="crearNota_Click"/>
+        <Controls1:RichTextEditor x:Name="sampleEditor" 
+								Grid.Row="2"
+                                Grid.Column="3"
+								Text="{Binding Text, Mode=TwoWay}" 
+								IsContextMenuEnabled="True" 
+								IsToolBarVisible="True" 
+								IsReadOnly="False"								
+								Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}"
+								Foreground="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"
+								 BorderThickness="1" BorderBrush="{DynamicResource {x:Static SystemColors.MenuBarBrushKey}}"
+			/>
     </Grid>
 </Window>
