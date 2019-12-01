@@ -10,8 +10,6 @@ namespace TreeViewWithViewModelDemo.LoadOnDemand
     /// </summary>
     public class TreeViewItemViewModel : INotifyPropertyChanged
     {
-        #region Data
-
         static readonly TreeViewItemViewModel DummyChild = new TreeViewItemViewModel();
 
         readonly ObservableCollection<TreeViewItemViewModel> _children;
@@ -19,10 +17,6 @@ namespace TreeViewWithViewModelDemo.LoadOnDemand
 
         bool _isExpanded;
         bool _isSelected;
-
-        #endregion // Data
-
-        #region Constructors
 
         protected TreeViewItemViewModel(TreeViewItemViewModel parent, bool lazyLoadChildren)
         {
@@ -39,12 +33,6 @@ namespace TreeViewWithViewModelDemo.LoadOnDemand
         {
         }
 
-        #endregion // Constructors
-
-        #region Presentation Members
-
-        #region Children
-
         /// <summary>
         /// Returns the logical child items of this object.
         /// </summary>
@@ -53,10 +41,6 @@ namespace TreeViewWithViewModelDemo.LoadOnDemand
             get { return _children; }
         }
 
-        #endregion // Children
-
-        #region HasLoadedChildren
-
         /// <summary>
         /// Returns true if this object's Children have not yet been populated.
         /// </summary>
@@ -64,10 +48,6 @@ namespace TreeViewWithViewModelDemo.LoadOnDemand
         {
             get { return this.Children.Count == 1 && this.Children[0] == DummyChild; }
         }
-
-        #endregion // HasLoadedChildren
-
-        #region IsExpanded
 
         /// <summary>
         /// Gets/sets whether the TreeViewItem 
@@ -97,10 +77,6 @@ namespace TreeViewWithViewModelDemo.LoadOnDemand
             }
         }
 
-        #endregion // IsExpanded
-
-        #region IsSelected
-
         /// <summary>
         /// Gets/sets whether the TreeViewItem 
         /// associated with this object is selected.
@@ -118,10 +94,6 @@ namespace TreeViewWithViewModelDemo.LoadOnDemand
             }
         }
 
-        #endregion // IsSelected
-
-        #region LoadChildren
-
         /// <summary>
         /// Invoked when the child items need to be loaded on demand.
         /// Subclasses can override this to populate the Children collection.
@@ -130,20 +102,10 @@ namespace TreeViewWithViewModelDemo.LoadOnDemand
         {
         }
 
-        #endregion // LoadChildren
-
-        #region Parent
-
         public TreeViewItemViewModel Parent
         {
             get { return _parent; }
         }
-
-        #endregion // Parent
-
-        #endregion // Presentation Members
-
-        #region INotifyPropertyChanged Members
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -152,7 +114,5 @@ namespace TreeViewWithViewModelDemo.LoadOnDemand
             if (this.PropertyChanged != null)
                 this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
         }
-
-        #endregion // INotifyPropertyChanged Members
     }
 }

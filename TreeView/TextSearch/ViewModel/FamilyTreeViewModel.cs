@@ -13,19 +13,13 @@ namespace TreeViewWithViewModelDemo.TextSearch
     /// SearchText property, and the SearchCommand to perform a search.
     /// </summary>
     public class FamilyTreeViewModel
-    {
-        #region Data
-
+    {        
         readonly ReadOnlyCollection<PersonViewModel> _firstGeneration;
         readonly PersonViewModel _rootPerson;
         readonly ICommand _searchCommand;
 
         IEnumerator<PersonViewModel> _matchingPeopleEnumerator;
         string _searchText = String.Empty;
-
-        #endregion // Data
-
-        #region Constructor
 
         public FamilyTreeViewModel(Person rootPerson)
         {
@@ -39,13 +33,7 @@ namespace TreeViewWithViewModelDemo.TextSearch
 
             _searchCommand = new SearchFamilyTreeCommand(this);
         }
-
-        #endregion // Constructor
-
-        #region Properties
-
-        #region FirstGeneration
-
+        
         /// <summary>
         /// Returns a read-only collection containing the first person 
         /// in the family tree, to which the TreeView can bind.
@@ -54,10 +42,6 @@ namespace TreeViewWithViewModelDemo.TextSearch
         {
             get { return _firstGeneration; }
         }
-
-        #endregion // FirstGeneration
-
-        #region SearchCommand
 
         /// <summary>
         /// Returns the command used to execute a search in the family tree.
@@ -98,10 +82,6 @@ namespace TreeViewWithViewModelDemo.TextSearch
             }
         }
 
-        #endregion // SearchCommand
-
-        #region SearchText
-
         /// <summary>
         /// Gets/sets a fragment of the name to search for.
         /// </summary>
@@ -118,12 +98,6 @@ namespace TreeViewWithViewModelDemo.TextSearch
                 _matchingPeopleEnumerator = null;
             }
         }
-
-        #endregion // SearchText
-
-        #endregion // Properties
-
-        #region Search Logic
 
         void PerformSearch()
         {
@@ -167,7 +141,5 @@ namespace TreeViewWithViewModelDemo.TextSearch
                 foreach (PersonViewModel match in this.FindMatches(searchText, child))
                     yield return match;
         }
-
-        #endregion // Search Logic
     }
 }
